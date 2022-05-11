@@ -96,4 +96,30 @@ public final class BasicCalculatorTest {
         assertEquals(expectedResult, basicCalculator.dif(first, second),
                 () -> first + " - " + second + " should equal " + expectedResult);
     }
+
+    @DisplayName("Testing several sums")
+    @ParameterizedTest(name = "{0} * {1} = {2}")
+    @CsvSource({
+            "0,    1,   0",
+            "10,    2,   20",
+            "10,  85, 850",
+            "50,  50, 2500"
+    })
+    public void severalMults(Long first, Long second, Long expectedResult) {
+        assertEquals(expectedResult, basicCalculator.mult(first, second),
+                () -> first + " * " + second + " should equal " + expectedResult);
+    }
+
+    @DisplayName("Testing several sums")
+    @ParameterizedTest(name = "{0} / {1} = {2}")
+    @CsvSource({
+            "500,    0,   0",
+            "10,    2,   5",
+            "50,  10, 5",
+            "50,  50, 1"
+    })
+    public void severalDivs(Long first, Long second, Long expectedResult) {
+        assertEquals(expectedResult, basicCalculator.div(first, second),
+                () -> first + " / " + second + " should equal " + expectedResult);
+    }
 }

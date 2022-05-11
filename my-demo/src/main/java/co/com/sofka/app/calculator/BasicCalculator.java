@@ -25,11 +25,11 @@ public class BasicCalculator {
     }
 
     public Long div(Long number1, Long number2) {
-        logger.info( "Division {} / {}", number1, number2 );
-        if (number2.equals(0)){
+        if (number2.equals(0L)){
             logger.info( "Division can't be done", number1, number2 );
-            return null;
+            return 0L;
         }
+        logger.info( "Division {} / {}", number1, number2 );
         return number1 / number2;
     }
 
